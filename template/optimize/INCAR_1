@@ -1,0 +1,110 @@
+   SYSTEM = A4B4S14_110_4
+
+# -----------Basic parameters-------------------------------------------
+   ISTART =      0    ! job : 0-new  1-cont  2-samecut
+   NWRITE =      2   
+   PREC   =  Accurate
+   ENCUT  =  500
+#   ISPIN = 2
+#   MAGMOM = 1*1 31*1 32*1
+#   NUPDOWN  = 2
+#   NELECT = 256     ! treating charged systems
+#   IVDW = 11
+# -----------Exchange correlation treatment:----------------------------
+    GGA     =    PE   ! PW|PB|LM|91|PE|RP|PS GGA type
+#   LEXCH   =     8   ! internal setting for exchange type
+#   VOSKOWN=      1   ! interpolation of C part of XC:  set to 1 when using PW91 
+#   LHFCALC =     F   ! Hartree Fock is set to
+#   LHFONE  =     F   ! Hartree Fock one center treatment
+#   AEXX    =    0.0000 ! exact exchange contribution
+
+# --------Ionic Relaxation---------------------------------------------
+   NSW    =   500
+   ISIF   =   3    ! stress and relaxation
+   ISYM   =   2    ! symmetry
+   NBLOCK =   1;   KBLOCK = 1   ! inner block; outer block
+   IBRION =   2    ! 0-MD 1-quasi-New 2-CG
+#   POTIM = 0.1
+#   IWAVPR =   0   ! prediction:  0-non 1-charg 2-wave 3-comb
+ 
+# --------SCF calculation    Electronic Relaxation----------------------
+    NELM   =   80     
+#   NELMIN =2; NELMDL =  ! change to larger value for MD calc.
+    EDIFF  =   1E-05      ! stopping-criterion for ELM    
+    EDIFFG =   -0.001 
+    ALGO   =   Normal         ! Normal | VeryFast | Fast | All | Damped
+#   IALGO  =   48     ! algorithm
+    LDIAG  =   .TRUE.    ! sub-space diagonalisation
+    LREAL  =   .FALSE.       ! real-space projection
+#   NGX=21; NGY=36; NGZ=130       ! FFT mesh for wavefunctions
+#   NGXF=32; NGYF=32; NGZF=32    ! FFT mesh for charges
+#   ADDGRID = .TRUE.
+    ISMEAR =    0       ! -5 Bloehl  -4 tet  -1 fermi  0-gaus  >0 MP
+    SIGMA  =  0.05       ! broadening in eV 
+  
+
+# --------non-SCF calculations------------------------------------------
+#   LORBIT = 11     output PDOS in PROCAR/DOSCAR
+    ICHARG = 2
+#   RWIGS  = 10.6574 1.661307
+#   LPARD = .TRUE.
+#   IBAND = 
+#   NBMOD = 
+#   LSEPB = .TRUE.
+#   LSEPK = .FALSE.
+
+# ---------Parallelisation-----------------------------------------------
+   LPLANE = .TRUE.
+   NPAR = 4
+   LSCALU = .FALSE.
+   NSIM = 4
+
+# ---------DOS evaluation-------------------------------------------------
+#   EMIN   =  -3.5863;
+#   EMAX   =   2.4137;
+#   NEDOS  =   30000
+
+# ----------Output control------------------------------------------------
+     LWAVE = .FALSE.        ! output WAVECAR or not
+     LCHARG = F      ! output CHARG/CHG or not
+#   LVTOT  =      F    ! write LOCPOT, total local potential
+#   LVHAR  =      F    ! write LOCPOT, Hartree potential only
+#   LELF   =      F    ! write electronic localiz. function (ELF)
+#   LORBIT =     10    ! output PDOS in PROCAR/DOSCAR 0 simple, 1 ext, 2 COOP (PROOUT)
+
+# ----------Hybrid functional calculation---------------------------------
+#   LHFCALC = .TRUE. ; HFSCREEN = 0.13
+#   ALGO = DAMP; TIME = 0.4
+#   ENCUTFOCK = 0
+#   NKRED = 2
+#   PRECFOCK= F
+
+# ----------Optical properties---------------------------------------------    
+#   LOPTICS = .TRUE.
+#   NBANDS  =  360           ! should be doubled or tripled vs the default
+#   NEDOS   =  2000         ! increase it when CSHIFT is smaller 
+#   CSHIFT  =  0.1          ! complex shift: decrease it when gap is small
+
+# ----------LDA+U calculations---------------------------------------------
+#   LDAU = .TRUE.           ! swith on L(S)DA+U
+#   LDAUTYPE = 2            ! 1 Liechtenstein  2 Dudarev  4 LDA+U
+#   LDAUL = 2  3            ! l for which on site interaction is added:-1no 1p 2d 3f
+#   LDAUU = 7.5  0.0 eV     ! effective on site Coulomb interaction parameter
+#   LDAUJ = 0  0.0 eV       ! effective on site Exchange interaction parameter
+#   LDAUPRINT = 0           ! 0 silent  1 occupancy matrix  2
+#   LMAXMIX  =  4           ! d:4   f:6
+# ----------Spin orbit coupling caculations----------------------------------
+#   LSORBIT = .TRUE.
+#   SAXIS = 0 0 1           ! quantisation axis parallel to vector (x,y,z)
+#   NBANDS  =  736           ! should be doubled or tripled vs the default
+#   GGA_COMPAT  =  .FALSE.           ! improves the numerical precision of GGA for non collinear calculations
+#   LORBMOM  =  .TRUE.           ! calculate orbital magmom
+    ICORELEVEL =  1
+#   LVHAR=.TRUE
+#   LVHAR=.T
+#---------------vdW-optPBE------------------------------------------------
+#GGA      =   MK      ! Use the exchange part of optPBE
+#PARAM1 = 0.1234
+#PARAM2 = 1.0000
+#LUSE_VDW = .TRUE.  ! vdW-DF method; vdw_kernel.bindat must be put in the same directory
+#AGGAC    = 0.0000  ! Correlation part of GGA is removed

@@ -1,0 +1,22 @@
+Electron-phonon coefficients
+&inputph
+   amass(1) = MASS_1
+   amass(2) = MASS_2
+   amass(3) = MASS_3
+   recover = .true.
+   prefix = 'AlZr3B'
+   outdir = './tmp'
+   verbosity = 'high'
+   nmix_ph = 20
+   ldisp = .true.
+   fildyn = 'AlZr3B.dyn'
+   fildvscf = 'dvscf'
+   tr2_ph = 1.0d-14
+   electron_phonon = 'interpolated'
+   el_ph_sigma = 0.01
+   el_ph_nsigma = 30
+   trans = .true.
+   nq1 = 3
+   nq2 = 3
+   nq3 = 3
+/

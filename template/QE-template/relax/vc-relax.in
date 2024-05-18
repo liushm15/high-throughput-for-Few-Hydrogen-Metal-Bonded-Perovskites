@@ -1,0 +1,58 @@
+&CONTROL
+    calculation = 'vc-relax'
+    restart_mode = 'from_scratch'
+    disk_io = 'low'
+    prefix = 'AlZr3B'
+    pseudo_dir = '../pseudo'
+    outdir = './tmp'
+    verbosity = 'high'
+    tprnfor = .true.
+    tstress = .true.
+    etot_conv_thr = 1.0d-10
+    forc_conv_thr = 1.0d-8
+/
+&SYSTEM
+    ibrav = 0
+    nat = 5
+    ntyp = 3
+    occupations= 'smearing'
+    smearing = 'gauss'
+    degauss = 1.0d-2
+    !nbnd = 32
+    ecutwfc = 60
+    ecutrho = 480
+    input_dft = 'pbesol'
+/
+&ELECTRONS
+    electron_maxstep = 200
+    conv_thr = 1.0d-10
+    mixing_mode = 'plain'
+    mixing_beta = 0.7d0
+    diagonalization = 'david'
+/
+&IONS
+    ion_dynamics = 'bfgs'
+/
+&CELL
+    cell_dynamics = 'bfgs'
+    press = 0.0
+    press_conv_thr = 0.1
+    !cell_dofree = '2Dxy'
+/
+ATOMIC_SPECIES
+  Element_1  MASS_1 UPF_1
+  Element_2  MASS_2 UPF_2
+  Element_3  MASS_3 UPF_3
+K_POINTS {automatic}
+15 15 15 0 0 0
+CELL_PARAMETERS {angstrom}
+     4.1389707495538151    0.0000000000000001    0.0000000000000003
+     0.0000000000000008    4.1389707495538151    0.0000000000000003
+     0.0000000000000000    0.0000000000000000    4.1389707495538142
+ATOMIC_POSITIONS {crystal}
+Element_1  0.0000000000000000  0.0000000000000000 -0.0000000000000000
+Element_2  0.0000000000000000  0.5000000000000000  0.5000000000000000
+Element_2  0.5000000000000000 -0.0000000000000000  0.5000000000000000
+Element_2  0.5000000000000000  0.5000000000000000 -0.0000000000000000
+Element_3  0.5000000000000000  0.5000000000000000  0.5000000000000000
+

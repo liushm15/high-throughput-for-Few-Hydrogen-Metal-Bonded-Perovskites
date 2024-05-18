@@ -1,0 +1,17 @@
+&input
+    asr = 'crystal'
+   amass(1) = MASS_1
+   amass(2) = MASS_2
+   amass(3) = MASS_3
+    flfrc = 'AlZr3B.333.fc'
+    fldyn = 'AlZr3B.dyn'
+    flfrq = 'AlZr3B.freq'
+    la2F = .true.
+    dos = .true.
+    fldos = 'phonon.dos'
+    nk1 = 30
+    nk2 = 30
+    nk3 = 30
+    ndos = 201
+/
+

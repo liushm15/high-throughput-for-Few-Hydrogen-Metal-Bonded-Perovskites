@@ -1,0 +1,18 @@
+&input
+    asr = 'crystal'
+   amass(1) = MASS_1
+   amass(2) = MASS_2
+   amass(3) = MASS_3
+    flfrc = 'AlZr3B.333.fc'
+    fldyn = 'AlZr3B.dyn'
+    flfrq = 'AlZr3B_band.freq'
+    la2F = .true.
+    dos = .false.
+    q_in_band_form = .true.
+    q_in_cryst_coord = .true.
+/
+4
+0.0000000000   0.0000000000   0.0000000000	50
+0.0000000000   0.5000000000   0.0000000000	50
+0.0000000000   0.5000000000   0.5000000000	50
+0.5000000000   0.5000000000   0.5000000000	1

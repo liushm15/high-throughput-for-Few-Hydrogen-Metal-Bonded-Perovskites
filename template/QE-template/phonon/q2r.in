@@ -1,0 +1,7 @@
+&input
+ fildyn = 'AlZr3B.dyn'
+ flfrc = 'AlZr3B.333.fc'
+ zasr = 'crystal'
+ la2F = .true.
+/
+

@@ -1,0 +1,24 @@
+#!/bin/bash
+#for A_element in Mg Al Ca Sc Ti V Cu Zn Ga Ge Sr Y Zr Nb Pd Ag Cd In Sn Sb Ba Hf
+for A_element in Be  #K Rb Cs  #Li Na #Ru Rh W Os Ir  #Hg Tl La  #Cr Mn Mo  #Pd Ag Cd In Sn Sb Ba Hf  #Zn Ga Ge Sr Y Zr  #Ta Pt Au Pb Bi  # Ca Al Nb Mg Cu Sc
+
+do
+
+	cp ./template/formation&hopping/formation.py ./${A_element}_based/
+	cp ./template/formation&hopping/单质能量.dat ./${A_element}_based/
+	cp ./template/formation&hopping/ase.sh ./${A_element}_based/
+	cp ./template/formation&hopping/minima.py ./${A_element}_based/
+	cp ./template/formation&hopping/job.sh ./${A_element}_based/
+	cp ./template/formation&hopping/read.py ./${A_element}_based/
+	cp ./template/formation&hopping/POSCAR_ase ./${A_element}_based/
+#	cp ./template/formation&hopping/plt.py ./${A_element}_based/
+#	cp ./template/formation&hopping/get.py ./${A_element}_based/
+	cd ./${A_element}_based/
+	python3 formation.py
+	compound=`cat compounds.txt | head -n 1`
+	sed -i "3s/Compounds/${compound}/g" ./a_ase.sh
+	bash ./ase.sh
+	cd $OLDPWD
+
+
+done
